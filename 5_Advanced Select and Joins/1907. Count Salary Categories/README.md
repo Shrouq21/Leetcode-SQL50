@@ -40,6 +40,21 @@ UNION ALL
 SELECT 'High Salary';
 ```
 
+
+I used this approach in my **second solution** instead of `VALUES` because:
+- The three salary categories are already unique.
+- There is no possibility of duplicate rows.
+- Removing duplicates would only add unnecessary work for the database engine
+
+# `UNION` vs `UNION ALL`
+
+| `UNION` | `UNION ALL` |
+|---------|-------------|
+| Combines result sets and removes duplicate rows. | Combines result sets without removing duplicates. |
+| Performs additional work to eliminate duplicates (sorting or hashing). | Does not check for duplicates, making it more efficient. |
+| Use when duplicate removal is required. | Use when duplicates are allowed or known not to exist. |
+
+
 ---
 
 ## Method 3: Using a Common Table Expression (CTE)

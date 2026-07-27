@@ -15,14 +15,10 @@ group by category
 
 select temp.category,coalesce(accounts_count,0) as accounts_count
 from ( 
-
-select * from (
-    values
-        ('High Salary')
-        ,('Average Salary'),
-         ('Low Salary')
+  select  ('High Salary') as category
+  union all select ('Average Salary'),
+  union all select('Low salary')
     
-) as Diff_Categories(category)
-)as temp
+) as temp
 left join totalCategories
 on totalCategories.category=temp.category
